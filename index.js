@@ -12,6 +12,11 @@ const refs = {
   stopBtn: document.querySelector('[data-action="stop"]'),
 };
 
+refs.startBtn.addEventListener("click", onBtnStart);
+refs.stopBtn.addEventListener("click", onBtnRemove);
+
+let interval;
+
 const randomIntegerFromInterval = (min, max) => {
   return Math.floor(Math.random() * (max - min + 1) + min);
 };
@@ -21,15 +26,13 @@ const setRandomColor = () => {
     colors[randomIntegerFromInterval(0, colors.length - 1)];
 };
 
-let interval = null;
-
-refs.startBtn.addEventListener("click", () => {
+function onBtnStart() {
   interval ??= setInterval(() => setRandomColor(), 1000);
   refs.startBtn.disabled = true;
-});
+}
 
-refs.stopBtn.addEventListener("click", () => {
+function onBtnRemove() {
   clearInterval(interval);
   interval = null;
   refs.startBtn.disabled = false;
-});
+}
