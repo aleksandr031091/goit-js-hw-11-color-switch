@@ -17,8 +17,8 @@ const randomIntegerFromInterval = (min, max) => {
 };
 
 const setRandomColor = () => {
-  const color = randomIntegerFromInterval(0, colors.length - 1);
-  document.body.style.backgroundColor = colors[color];
+  document.body.style.backgroundColor =
+    colors[randomIntegerFromInterval(0, colors.length - 1)];
 };
 
 let interval = null;
