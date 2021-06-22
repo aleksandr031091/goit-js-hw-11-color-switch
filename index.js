@@ -1,3 +1,5 @@
+"use strict";
+
 const colors = [
   "#FFFFFF",
   "#2196F3",
@@ -27,12 +29,11 @@ const setRandomColor = () => {
 };
 
 function onBtnStart() {
-  interval ??= setInterval(() => setRandomColor(), 1000);
+  interval = setInterval(() => setRandomColor(), 1000);
   refs.startBtn.disabled = true;
 }
 
 function onBtnRemove() {
   clearInterval(interval);
-  interval = null;
   refs.startBtn.disabled = false;
 }
